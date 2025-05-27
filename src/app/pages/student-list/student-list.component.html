@@ -1,0 +1,83 @@
+<div class="container">
+<div class="d-flex justify-content-center align-items-center">
+  <button class="btn btn-primary " type="button" *ngIf="!studentList" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Loading...
+  </button>
+  <table class="table" *ngIf="studentList">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Contact Number</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of studentList;let i = index;">
+      <td>{{i}}</td>
+      <td>{{student.firstName}}</td>
+      <td>{{student.lastName}}</td>
+      <td>{{student.contactNumber}}</td>
+      <td>
+        <div class="d-flex gap-1">
+          <button class="btn btn-primary" (click)="setSelectedStudent(student)" data-bs-toggle="modal" data-bs-target="#confirmationModal"><i class="bi bi-trash"></i></button>
+          <button class="btn btn-danger" (click)="setSelectedStudent(student)" data-bs-toggle="modal" data-bs-target="#updateModal"><i class="bi bi-pencil-square"></i></button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body p-4 text-center">
+        <h5 class="mb-0">Are you sure?</h5>
+        <p class="mb-0">You will not be able to restore this data.</p>
+      </div>
+      <div class="modal-footer flex-nowrap p-0">
+        <button type="button" (click)="deleteStudent()" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end" data-bs-dismiss="modal"><strong>Yes, delete</strong></button>
+        <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="updateModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Edit Student details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5 pt-0" *ngIf="studentList">
+        <form class="">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="firstName" [(ngModel)]="selectedStudent.firstName" [ngModelOptions]="{standalone:true}">
+            <label for="firstName"></label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="lastName" [(ngModel)]="selectedStudent.lastName" [ngModelOptions]="{standalone:true}">
+            <label for="lastName">Password</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="contact" [(ngModel)]="selectedStudent.contactNumber" [ngModelOptions]="{standalone:true}">
+            <label for="contact">Contact</label>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="w-100 mb-2 btn rounded-3 btn-primary" type="submit" data-bs-dismiss="modal" (click)="createStudent()">Update</button>
+            <button class="w-100 mb-2 btn rounded-3 btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,33 @@
+<p>Student Registration</p>
+<hr>
+<table>
+  <tr>
+    <td>Student Name</td>
+    <td><input type="text" [(ngModel)]="student.name"></td>
+  </tr>
+  <tr>
+    <td>Student Age</td>
+    <td><input type="number" [(ngModel)]="student.age"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><button (click)="onClear()">Clear</button></td>
+    <td><button (click)="onRegister()">Register</button></td>
+  </tr>
+</table>
+<div *ngIf="studentList.length > 0" >
+  <hr >
+  <p>Registered Student List</p>
+  <hr>
+</div>
+
+<table *ngIf="studentList.length > 0">
+  <tr>
+    <th>Student Name</th>
+    <th>Student Age</th>
+  </tr>
+  <tr *ngFor="let student of studentList">
+    <td>{{student.name}}</td>
+    <td>{{student.age}}</td>
+  </tr>
+</table>

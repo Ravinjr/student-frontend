@@ -1,0 +1,33 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-light">
+  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+    <span class="fs-4">Sidebar</span>
+  </a>
+  <hr>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item" (click)="setSelectedMenu('home')">
+      <a [ngClass]="{'active':selectedMenu == 'home'}" class="nav-link link-dark" routerLink="/">
+        Home
+      </a>
+    </li>
+    <li (click)="setSelectedMenu('registration')">
+      <a [ngClass]="{'active':selectedMenu == 'registration'}" routerLink="/registration" class="nav-link link-dark">
+        Student Registration
+      </a>
+    </li>
+    <li (click)="setSelectedMenu('student-list')">
+      <a [ngClass]="{'active':selectedMenu == 'student-list'}" routerLink="/student-list" class="nav-link link-dark">
+        Student List
+      </a>
+    </li>
+    <li (click)="setSelectedMenu('course-list')">
+      <a [ngClass]="{'active':selectedMenu == 'course-list'}" routerLink="/course-list" class="nav-link link-dark">
+        Course List
+      </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link link-dark">
+        Customers
+      </a>
+    </li>
+  </ul>
+</div>

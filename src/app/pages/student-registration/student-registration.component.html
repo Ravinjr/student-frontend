@@ -1,0 +1,17 @@
+<div>
+  <label for="firstName">First Name</label>
+  <input type="text" [(ngModel)]="student.firstName" class="form-control" id="firstName" placeholder="First Name">
+</div>
+<div>
+  <label for="lastName">Last Name</label>
+  <input type="text" [(ngModel)]="student.lastName" class="form-control" id="lastName" placeholder="Last Name">
+</div>
+<div>
+  <label for="contact">Contact Number</label>
+  <input type="text" [(ngModel)]="student.contactNumber" class="form-control" id="contact" placeholder="Contact Number">
+</div>
+<div class="mt-2 d-flex justify-content-end">
+  <button class="btn btn-light" (click)="createStudent()">Proceed</button>
+</div>
+
+
