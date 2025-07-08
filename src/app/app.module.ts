@@ -12,8 +12,8 @@ import { StudentRegistrationComponent } from './pages/student-registration/stude
 import { StudentListComponent } from './pages/student-list/student-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import { CourseListComponent } from './pages/course-list/course-list.component';
-
-
+import { LoginComponent } from './common/login/login.component';
+import { SignUpComponent } from './common/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,9 @@ import { CourseListComponent } from './pages/course-list/course-list.component';
     HomeComponent,
     StudentRegistrationComponent,
     StudentListComponent,
-    CourseListComponent
+    CourseListComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

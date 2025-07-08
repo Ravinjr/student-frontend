@@ -52,7 +52,12 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+//              "fileReplacements": [
+//                {
+//                  "replace": "src/environments/environment.ts"
+//                }
+//              ]
             },
             "development": {
               "buildOptimizer": false,
@@ -60,6 +65,11 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
+//              "fileReplacements": [
+//                {
+//                  "replace": "src/environments/environment.ts"
+//                }
+//              ],
               "namedChunks": true
             }
           },
