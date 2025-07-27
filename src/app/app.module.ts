@@ -10,10 +10,11 @@ import { SideNavComponent } from './common/side-nav/side-nav.component';
 import { HomeComponent } from './pages/home/home.component';
 import { StudentRegistrationComponent } from './pages/student-registration/student-registration.component';
 import { StudentListComponent } from './pages/student-list/student-list.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { CourseListComponent } from './pages/course-list/course-list.component';
 import { LoginComponent } from './common/login/login.component';
 import { SignUpComponent } from './common/sign-up/sign-up.component';
+import {AuthInterceptor} from "./common/interceptor/auth-interceptor";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,13 @@ import { SignUpComponent } from './common/sign-up/sign-up.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule{ }

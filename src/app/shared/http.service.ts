@@ -10,4 +10,5 @@ export class HttpService {
 
   static BASE_URL = environment.API_BASE_URL
   static LOGIN = environment.USER_LOGIN
+  static GET_ALL_STUDENTS = environment.GET_ALL_STUDENTS
 }

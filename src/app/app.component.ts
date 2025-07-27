@@ -13,7 +13,7 @@ export class AppComponent {
   }
 
   isAuthPage():boolean{
-    const currentRoute = this.router.url;
-    return currentRoute === '/login' || currentRoute === '/sign-up';
+    const route = this.router.url;
+    return route === '/' || route === '/login' || route === '/sign-up';
   }
 }

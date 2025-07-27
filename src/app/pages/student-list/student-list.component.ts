@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import Swal from 'sweetalert2'
+import {StudentService} from "../../common/services/student/student.service";
 
 @Component({
   selector: 'app-student-list',
@@ -11,14 +12,15 @@ export class StudentListComponent implements OnInit{
   public http;
   public studentList:any;
   public selectedStudent:any;
-  constructor(private httpClient:HttpClient) {
+  constructor(private httpClient:HttpClient,private studentService:StudentService) {
     this.http = httpClient;
   }
 
   loadStudents(){
-    this.http.get("http://localhost:8080/api/v1/student/student-list")
+    this.studentService.getAllStudents()
       .subscribe(data => {
         this.studentList = data;
+        console.log(data);
       })
   }
 
